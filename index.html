@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShiftLab is a modern, accessible web tool for encrypting and decrypting text with the Caesar Cipher.">
+  <meta name="theme-color" content="#1e293b">
+  <title>ShiftLab | Caesar Cipher Tool</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="container">
+    <header class="site-header">
+      <h1>ShiftLab</h1>
+      <p class="subtitle">Encrypt and decrypt messages with the classic Caesar Cipher. Choose your shift, tune the alphabet, and see the result instantly.</p>
+    </header>
+
+    <main id="main-content">
+      <section class="card" aria-labelledby="tool-heading">
+        <h2 id="tool-heading" class="visually-hidden">Caesar Cipher Controls</h2>
+
+        <form id="cipher-form" name="cipher-form" novalidate>
+
+          <fieldset class="mode-toggle">
+            <legend>Mode</legend>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="mode-encrypt" name="mode" value="encrypt" checked>
+                <label for="mode-encrypt">Encrypt</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="mode-decrypt" name="mode" value="decrypt">
+                <label for="mode-decrypt">Decrypt</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="shift-key">Shift Key</label>
+              <input type="number" id="shift-key" name="shift-key" value="3" step="1" inputmode="numeric" aria-describedby="shift-hint" required>
+              <small id="shift-hint" class="hint">Number of positions to shift each letter.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="modulo">Modulo / Alphabet Length</label>
+              <input type="number" id="modulo" name="modulo" value="26" min="1" step="1" inputmode="numeric" aria-describedby="modulo-hint" required>
+              <small id="modulo-hint" class="hint">Size of the alphabet (26 for English).</small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="case-handling">Letter Case Handling</label>
+              <select id="case-handling" name="case-handling">
+                <option value="maintain" selected>Maintain Case</option>
+                <option value="lowercase">Force Lowercase</option>
+                <option value="uppercase">Force Uppercase</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="symbol-handling">Symbols &amp; Spaces</label>
+              <select id="symbol-handling" name="symbol-handling">
+                <option value="ignore" selected>Ignore / Keep as is</option>
+                <option value="remove">Remove</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="input-text">Input Text</label>
+            <textarea id="input-text" name="input-text" rows="6" placeholder="Type or paste your message here, e.g. Hello, World!" autocomplete="off" spellcheck="false"></textarea>
+          </div>
+
+          <button type="submit" id="process-btn" class="btn-primary">Process Text</button>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+
+          <div class="form-group">
+            <label for="output-text">Result Output</label>
+            <textarea id="output-text" name="output-text" rows="6" readonly placeholder="Your processed text will appear here." aria-live="polite"></textarea>
+          </div>
+
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 ShiftLab. All rights reserved.</p>
+      <p class="footer-note">The Caesar Cipher is for learning and fun, not for securing sensitive data.</p>
+    </footer>
+  </div>
+</body>
+</html>
